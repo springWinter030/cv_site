@@ -2,7 +2,7 @@
     {
       "title": "나의 첫 번째 개발 일지",
       "date": "2025-04-01",
-      "link": "blog/post-sample.html",
+      "link": "/cv_site/blog/post-sample.html",
       "summary": "개발 블로그를 HTML로 직접 만들어본 후기입니다."
     }
   ]

@@ -162,16 +162,46 @@ img.fade-in {
   }
 }
 
-.profile-img {
+/* CV 페이지 내 프로필 이미지 + 텍스트 가로 정렬 */
+.cv-section.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* 프로필 전용 이미지 스타일 (CV 전용) */
+.cv-section.profile-info .profile-img {
   width: 120px;
   height: 160px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #ccc;
-  margin-bottom: 1rem;
   transition: transform 0.3s ease;
 }
 
-.profile-img:hover {
+.cv-section.profile-info .profile-img:hover {
   transform: scale(1.05);
 }
+
+/* 텍스트 */
+.cv-section.profile-info .profile-text h2 {
+  margin: 0 0 0.3rem;
+}
+
+.cv-section.profile-info .profile-text p {
+  margin: 0;
+  color: #444;
+}
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+  .cv-section.profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cv-section.profile-info .profile-text h2 {
+    font-size: 1.2rem;
+  }
+}
+

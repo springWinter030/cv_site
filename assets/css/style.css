@@ -169,39 +169,48 @@ img.fade-in {
   gap: 1.5rem;
 }
 
-/* 프로필 전용 이미지 스타일 (CV 전용) */
-.cv-section.profile-info .profile-img {
+/* 프로필 레이아웃 (cv-section 내부 전용) */
+.cv-section .profile-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* 이미지 스타일 */
+.cv-section .profile-img {
   width: 120px;
-  height: 160px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #ccc;
   transition: transform 0.3s ease;
 }
 
-.cv-section.profile-info .profile-img:hover {
+.cv-section .profile-img:hover {
   transform: scale(1.05);
 }
 
 /* 텍스트 */
-.cv-section.profile-info .profile-text h2 {
-  margin: 0 0 0.3rem;
+.cv-section .profile-text h3 {
+  margin: 0 0 0.5rem;
 }
 
-.cv-section.profile-info .profile-text p {
+.cv-section .profile-text p {
   margin: 0;
   color: #444;
 }
 
 /* 반응형 대응 */
 @media (max-width: 768px) {
-  .cv-section.profile-info {
+  .cv-section .profile-info {
     flex-direction: column;
     text-align: center;
   }
 
-  .cv-section.profile-info .profile-text h2 {
+  .cv-section .profile-text h3 {
     font-size: 1.2rem;
   }
 }
+
 

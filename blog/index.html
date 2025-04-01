@@ -31,7 +31,7 @@
   </footer>
 
   <script>
-    fetch('blog/posts.json')
+    fetch('posts.json')
       .then(res => res.json())
       .then(posts => {
         const list = document.getElementById('post-list');

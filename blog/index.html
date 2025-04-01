@@ -31,25 +31,23 @@
   </footer>
 
   <script>
-    fetch('posts.json')
+    fetch('blog/posts.json')
       .then(res => res.json())
       .then(posts => {
-        const listSection = document.getElementById('post-list');
-        listSection.innerHTML = ''; // 초기 텍스트 제거
-
+        const list = document.getElementById('post-list');
+        list.innerHTML = '';
         posts.forEach(post => {
-          const article = document.createElement('article');
-          article.classList.add('fade-in'); // 애니메이션 적용
-          article.innerHTML = `
-            <h2><a href="${post.link}">${post.title}</a></h2>
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <h3><a href="${post.link}">${post.title}</a></h3>
             <small>${post.date}</small>
             <p>${post.summary}</p>
           `;
-          listSection.appendChild(article);
+          list.appendChild(li);
         });
       })
       .catch(err => {
-        document.getElementById('post-list').innerHTML = '<p>글을 불러오지 못했습니다.</p>';
+        document.getElementById('post-list').innerHTML = '<li>글을 불러오지 못했습니다.</li>';
         console.error(err);
       });
   </script>

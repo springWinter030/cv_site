@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>블로그 목록 - 홍길동</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KwonYG's blog</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
   <header>
-    <h1>블로그</h1>
+    <h1>좌충우돌 개발 이야기</h1>
     <nav>
       <a href="../index.html">홈</a>
       <a href="../cv.html">이력서</a>
-      <a href="index.html">블로그</a>
+      <a href="index.html">게시글</a>
     </nav>
   </header>
 
   <main>
-    <section>
-      <p>여기에는 개발하면서 배우고 느낀 점들을 글로 남깁니다.</p>
+    <section class="fade-in">
+      <p>개발하면서 배운 점, 삽질기, 인사이트 등을 기록합니다 ✍️</p>
     </section>
 
-    <section>
-      <article>
-        <h2><a href="post-sample.html">✨ 나의 첫 번째 개발 일지</a></h2>
-        <p>개발 블로그를 HTML로 직접 만들어보면서 배운 점을 정리합니다.</p>
-        <small>2025-04-01</small>
-      </article>
-
-      <!-- 게시글을 추가할 때마다 아래 형식으로 붙이면 돼 -->
-      <!--
-      <article>
-        <h2><a href="post-두번째글.html">제목</a></h2>
-        <p>간단한 요약...</p>
-        <small>작성일</small>
-      </article>
-      -->
+    <section id="post-list" class="fade-in">
+      <p>불러오는 중...</p>
     </section>
   </main>
 
   <footer>
-    © 2025 홍길동
+    © 2025 springWinter030 All rights reserved. | <a href="https://github.com/springWinter030">GitHub</a>
   </footer>
+
+  <script>
+    fetch('posts.json')
+      .then(res => res.json())
+      .then(posts => {
+        const listSection = document.getElementById('post-list');
+        listSection.innerHTML = ''; // 초기 텍스트 제거
+
+        posts.forEach(post => {
+          const article = document.createElement('article');
+          article.classList.add('fade-in'); // 애니메이션 적용
+          article.innerHTML = `
+            <h2><a href="${post.link}">${post.title}</a></h2>
+            <small>${post.date}</small>
+            <p>${post.summary}</p>
+          `;
+          listSection.appendChild(article);
+        });
+      })
+      .catch(err => {
+        document.getElementById('post-list').innerHTML = '<p>글을 불러오지 못했습니다.</p>';
+        console.error(err);
+      });
+  </script>
 </body>
 </html>

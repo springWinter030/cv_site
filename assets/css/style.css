@@ -1,4 +1,4 @@
-/* 기본 세팅: 전체 페이지를 Flexbox로 구성 */
+/* ===== 기본 레이아웃 ===== */
 html, body {
   height: 100%;
   margin: 0;
@@ -11,7 +11,7 @@ html, body {
   line-height: 1.6;
 }
 
-/* 헤더 스타일 */
+/* ===== 헤더 ===== */
 header {
   background-color: #222;
   color: #fff;
@@ -29,13 +29,15 @@ nav a {
   margin: 0 1rem;
   text-decoration: none;
   font-weight: bold;
+  transition: all 0.2s ease;
 }
 
 nav a:hover {
   color: #fff;
+  transform: scale(1.03);
 }
 
-/* 메인 컨텐츠 */
+/* ===== 메인 컨텐츠 ===== */
 main {
   flex: 1;
   max-width: 800px;
@@ -43,7 +45,7 @@ main {
   padding: 0 1.5rem;
 }
 
-/* 게시글 본문 */
+/* ===== 게시글 ===== */
 article {
   margin-bottom: 3rem;
 }
@@ -52,14 +54,13 @@ article h2 {
   margin-top: 2rem;
 }
 
-/* 이미지 */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-/* 이력서 섹션 */
+/* ===== 이력서 섹션 ===== */
 .cv-section {
   margin-bottom: 2rem;
 }
@@ -69,7 +70,7 @@ img {
   padding-bottom: 0.3rem;
 }
 
-/* 블로그 목록 */
+/* ===== 블로그 목록 ===== */
 #post-list li {
   margin-bottom: 2rem;
   list-style: none;
@@ -88,7 +89,7 @@ img {
   color: #888;
 }
 
-/* 푸터 (하단 고정 + 세련된 스타일) */
+/* ===== 푸터 ===== */
 footer {
   text-align: center;
   padding: 1.5rem 1rem;
@@ -107,28 +108,21 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+  transform: scale(1.03);
 }
 
-/* 부드러운 페이드 인 */
+/* ===== 애니메이션 효과 ===== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* 링크 hover 확대 효과 */
-a:hover {
-  transition: all 0.2s ease;
-  transform: scale(1.03);
-}
-
-/* 이미지 등장 시 페이드 인 */
 img.fade-in {
   opacity: 0;
   animation: imageFade 1.2s ease-out forwards;
 }
 
-/* 애니메이션 정의 */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -139,5 +133,31 @@ img.fade-in {
 @keyframes imageFade {
   to {
     opacity: 1;
+  }
+}
+
+/* ===== 반응형 디자인 (모바일 대응) ===== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0.3rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  main {
+    padding: 0 1rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 1rem 0.8rem;
+  }
+
+  img {
+    border-radius: 4px;
   }
 }

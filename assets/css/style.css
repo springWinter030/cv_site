@@ -191,3 +191,18 @@ img.fade-in {
     font-size: 1.2rem;
   }
 }
+
+#search-input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#search-results li {
+  margin-bottom: 2rem;
+  list-style: none;
+}
+

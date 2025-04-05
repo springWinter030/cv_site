@@ -17,6 +17,12 @@
   </header>
 
   <main>
+    <section class="fade-in">
+      <h2>🔍 검색</h2>
+      <input type="text" id="search-input" placeholder="검색어를 입력하세요..." />
+      <ul id="search-results"></ul>
+    </section>
+    
     <section id="post-list" class="fade-in">
       <p>불러오는 중...</p>
     </section>
@@ -30,22 +36,40 @@
     fetch('posts.json')
       .then(res => res.json())
       .then(posts => {
-        const list = document.getElementById('post-list');
-        list.innerHTML = '';
-        posts.forEach(post => {
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <h3><a href="${post.link}">${post.title}</a></h3>
-            <small>${post.date}</small>
-            <p>${post.summary}</p>
-          `;
-          list.appendChild(li);
+        const input = document.getElementById('search-input');
+        const results = document.getElementById('search-results');
+  
+        const render = (filtered) => {
+          results.innerHTML = '';
+          filtered.forEach(post => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <h3><a href="${post.link}">${post.title}</a></h3>
+              <small>${post.date}</small>
+              <p>${post.summary}</p>
+            `;
+            results.appendChild(li);
+          });
+        };
+  
+        // 처음에는 전체 글 표시
+        render(posts);
+  
+        // 검색 이벤트
+        input.addEventListener('input', () => {
+          const keyword = input.value.toLowerCase();
+          const filtered = posts.filter(post =>
+            post.title.toLowerCase().includes(keyword) ||
+            post.summary.toLowerCase().includes(keyword)
+          );
+          render(filtered);
         });
       })
       .catch(err => {
-        document.getElementById('post-list').innerHTML = '<li>글을 불러오지 못했습니다.</li>';
+        document.getElementById('search-results').innerHTML = '<li>검색 결과를 불러오지 못했습니다.</li>';
         console.error(err);
       });
   </script>
+  
 </body>
 </html>

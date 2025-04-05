@@ -46,9 +46,9 @@
         const latest = posts[0];
         const li = document.createElement('li');
         li.innerHTML = `
-          <h3><a href="${post.link}">${post.title}</a></h3>
-          <small>${post.date}</small>
-          <p>${post.summary}</p>
+          <h3><a href="${latest.link}">${latest.title}</a></h3>
+          <small>${latest.date}</small>
+          <p>${latest.summary}</p>
         `;
         list.appendChild(li);
       })

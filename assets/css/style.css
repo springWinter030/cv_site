@@ -292,3 +292,50 @@ img.fade-in {
   gap: 0.5rem;
 }
 
+.post-card {
+  display: flex;
+  gap: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.thumbnail {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.post-content {
+  flex: 1;
+}
+
+.category {
+  font-size: 0.8rem;
+  color: #007acc;
+  font-weight: bold;
+}
+
+.tags {
+  margin-top: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #eef6fc;
+  color: #007acc;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  margin-right: 0.4rem;
+}

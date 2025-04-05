@@ -46,9 +46,18 @@
         const latest = posts[0];
         const li = document.createElement('li');
         li.innerHTML = `
-          <h3><a href="${latest.link}">${latest.title}</a></h3>
-          <small>${latest.date}</small>
-          <p>${latest.summary}</p>
+          <div class="post-card">
+            <img src="${post.thumbnail}" alt="${post.title}" class="thumbnail" />
+            <div class="post-content">
+              <span class="category">${post.category}</span>
+              <h3><a href="${post.link}">${post.title}</a></h3>
+              <small>${post.date}</small>
+              <p>${post.summary}</p>
+              <div class="tags">
+                ${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
+              </div>
+            </div>
+          </div>
         `;
         list.appendChild(li);
       })

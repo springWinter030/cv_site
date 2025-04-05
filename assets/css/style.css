@@ -219,8 +219,8 @@ img.fade-in {
 }
 
 
-#search-results li {
-  list-style: none;
+#search-results li,
+#post-list li {
   background-color: #fff;
   border-radius: 12px;
   padding: 1.2rem;
@@ -229,26 +229,31 @@ img.fade-in {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#search-results li:hover {
+#search-results li:hover,
+#post-list li:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-#search-results h3 {
+#search-results h3,
+#post-list h3 {
   margin: 0 0 0.5rem;
   font-size: 1.2rem;
 }
 
-#search-results p {
+#search-results p,
+#post-list p {
   margin: 0.5rem 0 0;
   color: #555;
   line-height: 1.5;
 }
 
-#search-results small {
+#search-results small,
+#post-list small {
   color: #888;
   font-size: 0.85rem;
 }
+
 
 #pagination {
   display: flex;

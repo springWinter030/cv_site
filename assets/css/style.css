@@ -220,8 +220,34 @@ img.fade-in {
 
 
 #search-results li {
-  margin-bottom: 2rem;
   list-style: none;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#search-results li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+#search-results h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+#search-results p {
+  margin: 0.5rem 0 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+#search-results small {
+  color: #888;
+  font-size: 0.85rem;
 }
 
 #pagination {

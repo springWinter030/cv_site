@@ -43,15 +43,14 @@
       .then(posts => {
         const list = document.getElementById('post-list');
         list.innerHTML = '';
-        posts.forEach(post => {
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <h3><a href="${post.link}">${post.title}</a></h3>
-            <small>${post.date}</small>
-            <p>${post.summary}</p>
-          `;
-          list.appendChild(li);
-        });
+        const latest = posts[0];
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <h3><a href="${post.link}">${post.title}</a></h3>
+          <small>${post.date}</small>
+          <p>${post.summary}</p>
+        `;
+        list.appendChild(li);
       })
       .catch(err => {
         document.getElementById('post-list').innerHTML = '<li>글을 불러오지 못했습니다.</li>';

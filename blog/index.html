@@ -20,7 +20,9 @@
     <section class="fade-in">
       <h2>🔍 검색</h2>
       <input type="text" id="search-input" placeholder="검색어를 입력하세요..." />
+      <button id="search-btn">검색</button>
       <ul id="search-results"></ul>
+      <div id="pagination"></div>
     </section>
   </main>
 
@@ -34,9 +36,53 @@
       .then(posts => {
         const input = document.getElementById('search-input');
         const results = document.getElementById('search-results');
-  
-        const render = (filtered) => {
+        const pagination = document.getElementById('pagination');
+        const postsPerPage = 10;
+        let currentPage = 1;
+
+        const renderPage = (page) => {
           results.innerHTML = '';
+          const start = (page - 1) * postsPerPage;
+          const end = start + postsPerPage;
+          const currentPosts = posts.slice(start, end);
+
+          currentPosts.forEach(post => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <h3><a href="${post.link}">${post.title}</a></h3>
+              <small>${post.date}</small>
+              <p>${post.summary}</p>
+            `;
+            results.appendChild(li);
+          });
+        };
+
+        const renderPagination = () => {
+          pagination.innerHTML = '';
+          const pageCount = Math.ceil(posts.length / postsPerPage);
+
+          for (let i = 1; i <= pageCount; i++) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            if (i === currentPage) btn.disabled = true;
+            btn.addEventListener('click', () => {
+              currentPage = i;
+              renderPage(currentPage);
+              renderPagination();
+            });
+            pagination.appendChild(btn);
+          }
+        };
+
+        const renderSearch = (filtered) => {
+          results.innerHTML = '';
+          pagination.innerHTML = '';
+
+          if (filtered.length === 0) {
+            results.innerHTML = '<li>검색 결과가 없습니다.</li>';
+            return;
+          }
+
           filtered.forEach(post => {
             const li = document.createElement('li');
             li.innerHTML = `
@@ -47,23 +93,32 @@
             results.appendChild(li);
           });
         };
-  
-        // 처음에는 전체 글 표시
-        render(posts);
-  
-        // 검색 이벤트
-        input.addEventListener('input', () => {
+
+        const searchBtn = document.getElementById('search-btn');
+
+        searchBtn.addEventListener('click', () => {
           const keyword = input.value.toLowerCase();
+          if (keyword === '') {
+            renderPage(currentPage);
+            renderPagination();
+            return;
+          }
+
           const filtered = posts.filter(post =>
             post.title.toLowerCase().includes(keyword) ||
             post.summary.toLowerCase().includes(keyword)
           );
-          render(filtered);
+          renderSearch(filtered);
         });
-      })
-      .catch(err => {
-        document.getElementById('search-results').innerHTML = '<li>검색 결과를 불러오지 못했습니다.</li>';
-        console.error(err);
+
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            searchBtn.click();
+          }
+        });
+
+        renderPage(currentPage);
+        renderPagination();
       });
   </script>
   

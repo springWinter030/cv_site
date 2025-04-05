@@ -206,3 +206,18 @@ img.fade-in {
   list-style: none;
 }
 
+#pagination button {
+  margin: 0 0.3rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #007acc;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#pagination button:disabled {
+  background-color: #ccc;
+  cursor: default;
+}
+

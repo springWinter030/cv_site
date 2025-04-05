@@ -1,9 +1,15 @@
 [
-    {
-      "title": "나의 첫 번째 개발 일지",
-      "date": "2025-04-01",
-      "link": "/cv_site/blog/post-sample.html",
-      "summary": "개발 블로그를 HTML로 직접 만들어본 후기입니다."
-    }
-  ]
+  {
+    "title": "나의 첫 번째 개발 일지",
+    "date": "2025-04-01",
+    "link": "/cv_site/blog/post-sample.html",
+    "summary": "개발 블로그를 HTML로 직접 만들어본 후기."
+  },
+  {
+    "title": "두 번째 개발 일지",
+    "date": "2025-04-05",
+    "link": "/cv_site/blog/post-second.html",
+    "summary": "구조만 잡았던 상태에서 내용을 천천히 수정해가고 있다."
+  }
+]
   

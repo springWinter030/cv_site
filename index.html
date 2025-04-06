@@ -44,17 +44,18 @@
         const list = document.getElementById('post-list');
         list.innerHTML = '';
         const latest = posts[0];
+  
         const li = document.createElement('li');
         li.innerHTML = `
           <div class="post-card">
-            <img src="${post.thumbnail}" alt="${post.title}" class="thumbnail" />
+            <img src="${latest.thumbnail}" alt="${latest.title}" class="thumbnail" />
             <div class="post-content">
-              <span class="category">${post.category}</span>
-              <h3><a href="${post.link}">${post.title}</a></h3>
-              <small>${post.date}</small>
-              <p>${post.summary}</p>
+              <span class="category">${latest.category}</span>
+              <h3><a href="${latest.link}">${latest.title}</a></h3>
+              <small>${latest.date}</small>
+              <p>${latest.summary}</p>
               <div class="tags">
-                ${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
+                ${latest.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
               </div>
             </div>
           </div>
@@ -65,6 +66,6 @@
         document.getElementById('post-list').innerHTML = '<li>글을 불러오지 못했습니다.</li>';
         console.error(err);
       });
-  </script>
+  </script>  
 </body>
 </html>

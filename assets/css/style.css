@@ -339,3 +339,32 @@ img.fade-in {
   border-radius: 6px;
   margin-right: 0.4rem;
 }
+
+@media (max-width: 600px) {
+  .post-card {
+    flex-direction: column;
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: auto;
+  }
+
+  .post-content {
+    text-align: center;
+  }
+
+  .category {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tags {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin-top: 0.3rem;
+  }
+}

@@ -4,7 +4,7 @@
     "date": "2025-04-05",
     "link": "/cv_site/blog/post-second.html",
     "summary": "구조만 잡았던 상태에서 내용을 천천히 수정해가고 있다.",
-    "thumbnail": "assets/images/thumb-1.png",
+    "thumbnail": "/cv_site/assets/images/thumb-1.png",
     "category": "개발일지",
     "tags": ["HTML", "기록", "개발"]
   },
@@ -13,7 +13,7 @@
     "date": "2025-04-01",
     "link": "/cv_site/blog/post-sample.html",
     "summary": "개발 블로그를 HTML로 직접 만들어본 후기.",
-    "thumbnail": "assets/images/thumb-1.png",
+    "thumbnail": "/cv_site/assets/images/thumb-1.png",
     "category": "개발일지",
     "tags": ["HTML", "기록", "개발"]
   }

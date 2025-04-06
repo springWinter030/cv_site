@@ -18,12 +18,12 @@
 
   <main>
     <section class="fade-in">
-      <ul id="search-results"></ul>
-      <div id="pagination"></div>
       <div id="search-bar">
         <input type="text" id="search-input" placeholder="검색어를 입력하세요..." />
         <button id="search-btn">검색</button>
-      </div> 
+      </div>
+      <ul id="search-results"></ul>
+      <div id="pagination"></div>
     </section>
   </main>
 
@@ -41,6 +41,25 @@
         const postsPerPage = 10;
         let currentPage = 1;
 
+        const renderPostCard = (post) => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <div class="post-card">
+              <img src="${post.thumbnail}" alt="${post.title}" class="thumbnail" />
+              <div class="post-content">
+                <span class="category">${post.category}</span>
+                <h3><a href="${post.link}">${post.title}</a></h3>
+                <small>${post.date}</small>
+                <p>${post.summary}</p>
+                <div class="tags">
+                  ${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
+                </div>
+              </div>
+            </div>
+          `;
+          return li;
+        };
+
         const renderPage = (page) => {
           results.innerHTML = '';
           const start = (page - 1) * postsPerPage;
@@ -48,21 +67,7 @@
           const currentPosts = posts.slice(start, end);
 
           currentPosts.forEach(post => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-              <div class="post-card">
-                <img src="${post.thumbnail}" alt="${post.title}" class="thumbnail" />
-                <div class="post-content">
-                  <span class="category">${post.category}</span>
-                  <h3><a href="${post.link}">${post.title}</a></h3>
-                  <small>${post.date}</small>
-                  <p>${post.summary}</p>
-                  <div class="tags">
-                    ${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
-                  </div>
-                </div>
-              </div>
-            `;
+            const li = renderPostCard(post);
             results.appendChild(li);
           });
         };
@@ -94,21 +99,7 @@
           }
 
           filtered.forEach(post => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-              <div class="post-card">
-                <img src="${post.thumbnail}" alt="${post.title}" class="thumbnail" />
-                <div class="post-content">
-                  <span class="category">${post.category}</span>
-                  <h3><a href="${post.link}">${post.title}</a></h3>
-                  <small>${post.date}</small>
-                  <p>${post.summary}</p>
-                  <div class="tags">
-                    ${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
-                  </div>
-                </div>
-              </div>
-            `;
+            const li = renderPostCard(post);
             results.appendChild(li);
           });
         };
@@ -140,6 +131,5 @@
         renderPagination();
       });
   </script>
-  
 </body>
 </html>

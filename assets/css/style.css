@@ -234,4 +234,54 @@ footer a:hover {
   .tag {
     margin-top: 0.3rem;
   }
+
+  .cv-section {
+    margin-bottom: 2rem;
+  }
+  
+  .cv-section h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.3rem;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .profile-img {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-img:hover {
+    transform: scale(1.05);
+  }
+  
+  .profile-text h3 {
+    margin: 0 0 0.5rem;
+  }
+  
+  .profile-text p {
+    margin: 0;
+    color: #444;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-info {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile-text h3 {
+      font-size: 1.2rem;
+    }
+  }
+  
 }

@@ -1,3 +1,4 @@
+
 html, body {
   height: 100%;
   margin: 0;
@@ -8,6 +9,7 @@ html, body {
   background-color: #fdfdfd;
   color: #333;
   line-height: 1.6;
+  font-size: 16px;
 }
 
 header {
@@ -90,6 +92,7 @@ footer a:hover {
 .cv-section h2 {
   border-bottom: 2px solid #ccc;
   padding-bottom: 0.3rem;
+  font-size: 1.3rem;
 }
 
 .cv-section .profile-info {
@@ -119,6 +122,50 @@ footer a:hover {
 .cv-section .profile-text p {
   margin: 0;
   color: #444;
+}
+
+.work-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.work-item h3 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  color: #222;
+  font-weight: 600;
+}
+
+.project {
+  margin-bottom: 1.5rem;
+}
+
+.project strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: #222;
+}
+
+.project .period {
+  color: #666;
+  font-weight: normal;
+  font-size: 0.95rem;
+  margin-left: 0.3rem;
+}
+
+.project ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #444;
+}
+
+.project ul li {
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
 }
 
 #search-bar {
@@ -188,10 +235,6 @@ footer a:hover {
   list-style: none;
   margin-bottom: 1.5rem;
   padding: 0;
-  background: none;
-  border-radius: 0;
-  box-shadow: none;
-  transition: none;
 }
 
 .post-card {
@@ -242,6 +285,10 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+  html, body {
+    font-size: 14px;
+  }
+
   header h1 {
     font-size: 1.5rem;
   }
@@ -260,9 +307,55 @@ footer a:hover {
     padding: 1rem 0.8rem;
   }
 
+  .cv-section h2 {
+    font-size: 1.1rem;
+  }
+
+  .cv-section .profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cv-section .profile-text h3 {
+    font-size: 1rem;
+  }
+
+  .work-item {
+    padding: 1rem 1.2rem;
+  }
+
+  .work-item h3 {
+    font-size: 1rem;
+  }
+
+  .project strong {
+    font-size: 0.95rem;
+  }
+
+  .project ul li {
+    font-size: 0.9rem;
+  }
+
+  #search-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #search-input {
+    width: 90%;
+    border-radius: 5px;
+  }
+
+  #search-btn {
+    width: 90%;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+  }
+
   .post-card {
     flex-direction: column;
     text-align: center;
+    padding: 1rem;
   }
 
   .thumbnail {
@@ -277,14 +370,5 @@ footer a:hover {
 
   .tag {
     margin-top: 0.3rem;
-  }
-
-  .cv-section .profile-info {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .cv-section .profile-text h3 {
-    font-size: 1.2rem;
   }
 }
